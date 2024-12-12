@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:quizapp/styled_text.dart';
 
-class GradientContainer extends StatelessWidget {
-  const GradientContainer({super.key, required this.colors});
+class StartScreen extends StatelessWidget {
+  const StartScreen({super.key, required this.colors});
 
   final List<Color> colors;
 
@@ -30,7 +30,7 @@ class GradientContainer extends StatelessWidget {
             ),
             const StyledText('Learn Flutter the fun way!'),
             const SizedBox(
-              height: 25,
+              height: 5,
             ),
             OutlinedButton(
               onPressed: () {},

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
-import 'package:quizapp/gradient_container.dart';
+import 'package:quizapp/start_screen.dart';
 
 void main() {
-  runApp(const MaterialApp(
-    home: GradientContainer(
-      colors: [Colors.purple, Colors.white],
+  runApp(
+    const MaterialApp(
+      home: Scaffold(
+        body: StartScreen(
+          colors: [Colors.purple, Colors.white],
+        ),
+      ),
     ),
-  ));
+  );
 }
