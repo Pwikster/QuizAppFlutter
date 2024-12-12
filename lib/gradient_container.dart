@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:quizapp/styled_text.dart';
+
 class GradientContainer extends StatelessWidget {
   const GradientContainer({super.key, required this.colors});
 
@@ -15,8 +17,27 @@ class GradientContainer extends StatelessWidget {
           end: Alignment.bottomCenter,
         ),
       ),
-      child: const Center(
-        child: Text(''),
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              'assets/images/quiz-logo.png',
+              width: 275,
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            const StyledText('Learn Flutter the fun way!'),
+            const SizedBox(
+              height: 25,
+            ),
+            OutlinedButton(
+              onPressed: () {},
+              child: const Text('Start Quiz'),
+            )
+          ],
+        ),
       ),
     );
   }

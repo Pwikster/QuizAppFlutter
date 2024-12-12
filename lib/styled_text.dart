@@ -11,7 +11,8 @@ class StyledText extends StatelessWidget {
       text,
       style: const TextStyle(
         color: Colors.white,
-        fontSize: 32,
+        fontSize: 12,
+        decoration: TextDecoration.none,
       ),
     );
   }
