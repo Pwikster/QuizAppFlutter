@@ -7,7 +7,7 @@ void main() {
     const MaterialApp(
       home: Scaffold(
         body: StartScreen(
-          colors: [Colors.purple, Colors.white],
+          colors: [Colors.purple, Colors.cyan],
         ),
       ),
     ),
