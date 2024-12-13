@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizapp/question_screen.dart';
 import 'package:quizapp/start_screen.dart';
 import 'package:quizapp/button_with_image.dart';
 
@@ -7,21 +8,35 @@ class Quiz extends StatefulWidget {
 
   @override
   State<Quiz> createState() {
-    return _Quiz();
+    return _QuizState();
   }
 }
 
-class _Quiz extends State<Quiz> {
+class _QuizState extends State<Quiz> {
+
+  Widget? activeScreen;
 //methods
+@override
+  void initState() {
+    activeScreen = StartScreen(
+    colors: const [Colors.purple, Colors.cyan],
+    content: ButtonWithImage(changeScreen),
+  );
+    super.initState();
+  }
+
+
+  void changeScreen() {
+    setState(() {
+      activeScreen = const QuestionScreen();
+    });
+  }
 
   @override
   Widget build(context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
-        body: StartScreen(
-          colors: [Colors.purple, Colors.cyan],
-          content: ButtonWithImage(),
-        ),
+        body: activeScreen,
       ),
     );
   }

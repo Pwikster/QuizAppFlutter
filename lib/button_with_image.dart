@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:quizapp/styled_text.dart';
 
 class ButtonWithImage extends StatelessWidget {
-  const ButtonWithImage({super.key});
+  const ButtonWithImage(this.changeScreen, {super.key});
+
+  final void Function() changeScreen;
 
   @override
   Widget build(context) {
@@ -19,7 +21,7 @@ class ButtonWithImage extends StatelessWidget {
           height: 30,
         ),
         OutlinedButton.icon(
-          onPressed: () {},
+          onPressed: changeScreen,
           style: OutlinedButton.styleFrom(
             foregroundColor: Colors.white,
           ),
