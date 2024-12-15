@@ -9,11 +9,11 @@ class StyledText extends StatelessWidget {
   Widget build(context) {
     return Text(
       text,
+      textAlign: TextAlign.center,
       style: const TextStyle(
         color: Colors.white,
         fontSize: 24,
       ),
-      textAlign: TextAlign.center,
     );
   }
 }

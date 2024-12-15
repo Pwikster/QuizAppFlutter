@@ -22,20 +22,24 @@ class _QuestionScreen extends State<QuestionScreen> {
 
     return StartScreen(
       colors: const [Colors.purple, Colors.cyan],
-      content: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          StyledText(currentQuestion.text),
-          const SizedBox(height: 30),
-          ...currentQuestion.answer.map( //iterates answers of question[i]
-            (answer) {
-              return StyledButton(
-                buttonAction: () {},
-                text: answer,
-              );
-            },
-          )
-        ],
+      content: Container(
+        margin: const EdgeInsets.all(20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            StyledText(currentQuestion.text),
+            const SizedBox(height: 30),
+            ...currentQuestion.answer.map( //iterates answers of question[i]
+              (answer) {
+                return StyledButton(
+                  buttonAction: () {},
+                  text: answer,
+                );
+              },
+            )
+          ],
+        ),
       ),
     );
   }
