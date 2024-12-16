@@ -5,7 +5,12 @@ import 'package:quizapp/styled_text.dart';
 import 'package:quizapp/data/questions.dart';
 
 class QuestionScreen extends StatefulWidget {
-  const QuestionScreen({super.key});
+  const QuestionScreen({
+    super.key,
+    required this.onSelectAnswer,
+  });
+
+  final void Function(String answer) onSelectAnswer;
 
   @override
   State<QuestionScreen> createState() {
@@ -14,10 +19,10 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionScreen extends State<QuestionScreen> {
-  //methods
   var currentQuestionIndex = 0;
 
-  void answerQuestion() {
+  void answerQuestion(String selectedAnswer) {
+    widget.onSelectAnswer(selectedAnswer);
     setState(() {
       currentQuestionIndex++;
     });
@@ -43,7 +48,9 @@ class _QuestionScreen extends State<QuestionScreen> {
                 return Container(
                   margin: const EdgeInsets.all(8),
                   child: StyledButton(
-                    buttonAction: answerQuestion,
+                    buttonAction: () {
+                      answerQuestion(answer);
+                    },
                     text: answer,
                   ),
                 );

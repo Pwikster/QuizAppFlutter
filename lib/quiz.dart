@@ -15,11 +15,19 @@ class Quiz extends StatefulWidget {
 class _QuizState extends State<Quiz> {
   final List<String> selectedAnswers = [];
 
+  void saveAnswers(String answer) {
+    setState(() {
+      selectedAnswers.add(answer);
+    });
+  }
+
   Widget? activeScreen;
-//methods
+
   void changeScreen() {
     setState(() {
-      activeScreen = const QuestionScreen();
+      activeScreen = QuestionScreen(
+        onSelectAnswer: saveAnswers,
+      );
     });
   }
 
