@@ -14,11 +14,18 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionScreen extends State<QuestionScreen> {
-//methods
+  //methods
+  var currentQuestionIndex = 0;
+
+  void answerQuestion() {
+    setState(() {
+      currentQuestionIndex++;
+    });
+  }
 
   @override
   Widget build(context) {
-    final currentQuestion = questions[0];
+    final currentQuestion = questions[currentQuestionIndex];
 
     return StartScreen(
       colors: const [Colors.purple, Colors.cyan],
@@ -30,11 +37,15 @@ class _QuestionScreen extends State<QuestionScreen> {
           children: [
             StyledText(currentQuestion.text),
             const SizedBox(height: 30),
-            ...currentQuestion.answer.map( //iterates answers of question[i]
+            ...currentQuestion.getShuffledAnswers().map(
+              //iterates answers of question[i]
               (answer) {
-                return StyledButton(
-                  buttonAction: () {},
-                  text: answer,
+                return Container(
+                  margin: const EdgeInsets.all(8),
+                  child: StyledButton(
+                    buttonAction: answerQuestion,
+                    text: answer,
+                  ),
                 );
               },
             )

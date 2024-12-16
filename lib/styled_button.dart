@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class StyledButton extends StatelessWidget {
   const StyledButton({
@@ -14,15 +15,17 @@ class StyledButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.orange,
-        foregroundColor: Colors.black,
-        padding: const EdgeInsets.symmetric(
-          vertical: 10,
-          horizontal: 40,
-        ),
+        backgroundColor: Colors.deepPurple,
       ),
       onPressed: buttonAction,
-      child: Text(text),
+      child: Text(
+        textAlign: TextAlign.center,
+        text,
+        style: GoogleFonts.robotoMono(
+          color: Colors.white,
+          fontSize: 16,
+        ),
+      ),
     );
   }
 }

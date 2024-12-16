@@ -13,23 +13,23 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
+  final List<String> selectedAnswers = [];
 
   Widget? activeScreen;
 //methods
-@override
-  void initState() {
-    activeScreen = StartScreen(
-    colors: const [Colors.purple, Colors.cyan],
-    content: ButtonWithImage(changeScreen),
-  );
-    super.initState();
-  }
-
-
   void changeScreen() {
     setState(() {
       activeScreen = const QuestionScreen();
     });
+  }
+
+  @override
+  void initState() {
+    activeScreen = StartScreen(
+      colors: const [Colors.purple, Colors.cyan],
+      content: ButtonWithImage(changeScreen),
+    );
+    super.initState();
   }
 
   @override
