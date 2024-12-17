@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:quizapp/data/questions.dart';
 import 'package:quizapp/question_screen.dart';
+import 'package:quizapp/results_screen.dart';
 import 'package:quizapp/start_screen.dart';
 import 'package:quizapp/button_with_image.dart';
+
+//TODO:Scan over file and look for refactoring opportunities.
+//Use the following principles to ensure DRY code.
+//Functions ALWAYS do ONE thing.
+//Don't set the same value in multiple places.
+//Add comments to explain the flow of data.
+
+
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -21,10 +30,7 @@ class _QuizState extends State<Quiz> {
       selectedAnswers.add(answer);
 
       if (selectedAnswers.length == questions.length) {
-        activeScreen = StartScreen(
-      colors: const [Colors.purple, Colors.cyan],
-      content: ButtonWithImage(changeScreen),
-        );
+        activeScreen = const ResultsScreen();
         selectedAnswers = [];
       }
     });
