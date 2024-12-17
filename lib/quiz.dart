@@ -13,11 +13,11 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  final List<String> selectedAnswers = [];
+  final List<String> selectedAnswer = [];
 
   void saveAnswers(String answer) {
     setState(() {
-      selectedAnswers.add(answer);
+      selectedAnswer.add(answer);
     });
   }
 

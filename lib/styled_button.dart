@@ -4,11 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 class StyledButton extends StatelessWidget {
   const StyledButton({
     super.key,
-    required this.buttonAction,
+    required this.onTap,
     required this.text,
   });
 
-  final void Function() buttonAction;
+  final void Function() onTap;
   final String text;
 
   @override
@@ -17,7 +17,7 @@ class StyledButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.deepPurple,
       ),
-      onPressed: buttonAction,
+      onPressed: onTap,
       child: Text(
         textAlign: TextAlign.center,
         text,

@@ -48,10 +48,10 @@ class _QuestionScreen extends State<QuestionScreen> {
                 return Container(
                   margin: const EdgeInsets.all(8),
                   child: StyledButton(
-                    buttonAction: () {
+                    text: answer,
+                    onTap: () {
                       answerQuestion(answer);
                     },
-                    text: answer,
                   ),
                 );
               },
