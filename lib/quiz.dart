@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizapp/data/questions.dart';
 import 'package:quizapp/question_screen.dart';
 import 'package:quizapp/start_screen.dart';
 import 'package:quizapp/button_with_image.dart';
@@ -13,11 +14,19 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  final List<String> selectedAnswer = [];
+  List<String> selectedAnswers = [];
 
   void saveAnswers(String answer) {
     setState(() {
-      selectedAnswer.add(answer);
+      selectedAnswers.add(answer);
+
+      if (selectedAnswers.length == questions.length) {
+        activeScreen = StartScreen(
+      colors: const [Colors.purple, Colors.cyan],
+      content: ButtonWithImage(changeScreen),
+        );
+        selectedAnswers = [];
+      }
     });
   }
 
