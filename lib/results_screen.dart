@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizapp/data/questions.dart';
+import 'package:quizapp/questions_summary.dart';
 import 'package:quizapp/start_screen.dart';
 import 'package:quizapp/styled_text.dart';
 
@@ -39,8 +40,12 @@ class ResultsScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const StyledText(
-                'Placeholder for list of correct/incorrect answers'),
+            QuestionsSummary(
+              summaryData: getSummaryData(),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
             TextButton(
               onPressed: () {},
               child: const Text('Restart Quiz'),
