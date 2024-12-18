@@ -28,6 +28,12 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(context) {
+    final summaryData = getSummaryData();
+    final numTotalQuestions = questions.length;
+    final numCorrectQuestions = summaryData.where((data) {
+      return data['user_answer'] == data['correct_answer'];
+    }).length;
+
     return StartScreen(
       colors: const [Colors.purple, Colors.cyan],
       content: Container(
@@ -36,12 +42,13 @@ class ResultsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const StyledText('DUMMY TEXT, YA DUMMY'),
+            StyledText(
+                '$numCorrectQuestions correct out of $numTotalQuestions'),
             const SizedBox(
               height: 30,
             ),
             QuestionsSummary(
-              summaryData: getSummaryData(),
+              summaryData: summaryData,
             ),
             const SizedBox(
               height: 30,

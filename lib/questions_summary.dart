@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quizapp/styled_text.dart';
 
 class QuestionsSummary extends StatelessWidget {
   const QuestionsSummary({
@@ -11,27 +10,34 @@ class QuestionsSummary extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return Column(
-      children: summaryData.map(
-        (data) {
-          return Row(
-            children: [
-              StyledText(
-                ((data['question_index'] as int) + 1).toString(),
-              ),
-              Column(
+    return SizedBox(
+      height: 300,
+      child: SingleChildScrollView(
+        child: Column(
+          children: summaryData.map(
+            (data) {
+              return Row(
                 children: [
-                  Text(data['user_answer'] as String),
-                  const SizedBox(
-                    height: 5,
+                  Text(
+                    ((data['question_index'] as int) + 1).toString(),
                   ),
-                  Text(data['correct_answer'] as String),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Text(data['user_answer'] as String),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text(data['correct_answer'] as String),
+                      ],
+                    ),
+                  ),
                 ],
-              ),
-            ],
-          );
-        },
-      ).toList(),
+              );
+            },
+          ).toList(),
+        ),
+      ),
     );
   }
 }
