@@ -32,6 +32,7 @@ class _QuizState extends State<Quiz> {
       if (selectedAnswers.length == questions.length) {
         activeScreen = ResultsScreen(
           selectedResults: selectedAnswers,
+          restartQuiz: restartQuiz,
         );
         selectedAnswers = [];
       }
@@ -45,6 +46,16 @@ class _QuizState extends State<Quiz> {
       activeScreen = QuestionScreen(
         onSelectAnswer: saveAnswers,
       );
+    });
+  }
+
+  void restartQuiz() {
+    setState(() {
+      activeScreen = StartScreen(
+      colors: const [Colors.purple, Colors.cyan],
+      content: ButtonWithImage(changeScreen),
+    );
+    selectedAnswers = [];
     });
   }
 
